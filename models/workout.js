@@ -45,6 +45,13 @@ const workoutSchema = new Schema({
       distance: {
         type: Number,
       },
+
+      // CALORIES BURNED
+      caloriesBurned: {
+        type: Number,
+      }
+
+
     },
   ],
 });

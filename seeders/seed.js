@@ -16,7 +16,8 @@ let workoutSeed = [
         duration: 20,
         weight: 100,
         reps: 10,
-        sets: 4
+        sets: 4,
+        caloriesBurned: 160
       }
     ]
   },
@@ -27,9 +28,10 @@ let workoutSeed = [
         type: "resistance",
         name: "Lateral Pull",
         duration: 20,
-        weight: 300,
+        weight: 145,
         reps: 10,
-        sets: 4
+        sets: 4,
+        caloriesBurned: 80
       }
     ]
   },
@@ -42,7 +44,8 @@ let workoutSeed = [
         duration: 25,
         weight: 185,
         reps: 8,
-        sets: 4
+        sets: 4,
+        caloriesBurned: 120
       }
     ]
   },
@@ -53,7 +56,8 @@ let workoutSeed = [
         type: "cardio",
         name: "Running",
         duration: 25,
-        distance: 4
+        distance: 4,
+        caloriesBurned: 100
       }
     ]
   },
@@ -66,7 +70,8 @@ let workoutSeed = [
         duration: 20,
         weight: 285,
         reps: 10,
-        sets: 4
+        sets: 4,
+        caloriesBurned: 90
       }
     ]
   },
@@ -77,9 +82,10 @@ let workoutSeed = [
         type: "resistance",
         name: "Bench Press",
         duration: 20,
-        weight: 300,
+        weight: 240,
         reps: 10,
-        sets: 4
+        sets: 4,
+        caloriesBurned: 200
       }
     ]
   },
@@ -92,7 +98,8 @@ let workoutSeed = [
         duration: 30,
         weight: 300,
         reps: 10,
-        sets: 4
+        sets: 4,
+        caloriesBurned: 125
       }
     ]
   },
@@ -103,9 +110,10 @@ let workoutSeed = [
         type: "resistance",
         name: "Bench Press",
         duration: 20,
-        weight: 300,
+        weight: 250,
         reps: 10,
-        sets: 4
+        sets: 4,
+        caloriesBurned: 140
       }
     ]
   },
@@ -116,9 +124,10 @@ let workoutSeed = [
         type: "resistance",
         name: "Military Press",
         duration: 20,
-        weight: 300,
+        weight: 270,
         reps: 10,
-        sets: 4
+        sets: 4,
+        caloriesBurned: 75
       }
     ]
   }

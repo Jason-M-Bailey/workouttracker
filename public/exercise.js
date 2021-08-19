@@ -7,6 +7,8 @@ const weightInput = document.querySelector("#weight");
 const setsInput = document.querySelector("#sets");
 const repsInput = document.querySelector("#reps");
 const durationInput = document.querySelector("#duration");
+// caloriesBurned id 
+const caloriesBurnedInput = document.querySelector("#caloriesBurned")
 const resistanceDurationInput = document.querySelector("#resistance-duration");
 const distanceInput = document.querySelector("#distance");
 const completeButton = document.querySelector("button.complete");
@@ -84,6 +86,12 @@ function validateInputs() {
     if (distanceInput.value.trim() === "") {
       isValid = false;
     }
+
+    // calories burned validator 
+    if (caloriesBurnedInput.value.trim() === "") {
+      isValid = false;
+    }
+
   }
 
   if (isValid) {
@@ -105,6 +113,8 @@ async function handleFormSubmit(event) {
     workoutData.name = cardioNameInput.value.trim();
     workoutData.distance = Number(distanceInput.value.trim());
     workoutData.duration = Number(durationInput.value.trim());
+    // caloriesBurned data 
+    workoutData.caloriesBurned = Number(caloriesBurnedInput.value.trim());
   } else if (workoutType === "resistance") {
     workoutData.type = "resistance";
     workoutData.name = nameInput.value.trim();
@@ -135,6 +145,10 @@ function clearInputs() {
   repsInput.value = "";
   resistanceDurationInput.value = "";
   weightInput.value = "";
+
+  // 
+  caloriesBurnedInput.value = "";
+
 }
 
 if (workoutTypeSelect) {
