@@ -25,7 +25,10 @@ function populateChart(data) {
   let durations = data.map(({ totalDuration }) => totalDuration);
 
   // 
-  let calories_burned = data.map(({ totalCaloriesBurned }) => totalCaloriesBurned)
+  let calories_burned = data.map(({ calories_burned }) => calories_burned)
+
+  console.log(calories_burned);
+
 
   let pounds = calculateTotalWeight(data);
   let workouts = workoutNames(data);
@@ -192,7 +195,7 @@ function populateChart(data) {
           backgroundColor: "red",
           borderColor: "red",
           // this needs to be changed - durations displayed workout time
-          data: durations,
+          data: calories_burned,
           fill: false,
         },
       ],
