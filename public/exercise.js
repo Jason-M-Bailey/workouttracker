@@ -9,6 +9,8 @@ const repsInput = document.querySelector("#reps");
 const durationInput = document.querySelector("#duration");
 // caloriesBurned id 
 const caloriesBurnedInput = document.querySelector("#caloriesBurned")
+const resistanceCaloriesBurnedInput = document.querySelector("#resistance-caloriesBurned")
+
 const resistanceDurationInput = document.querySelector("#resistance-duration");
 const distanceInput = document.querySelector("#distance");
 const completeButton = document.querySelector("button.complete");
@@ -74,6 +76,11 @@ function validateInputs() {
     if (resistanceDurationInput.value.trim() === "") {
       isValid = false;
     }
+
+    if (resistanceCaloriesBurnedInput.value.trim() === "") {
+      isValid = false;
+    }
+
   } else if (workoutType === "cardio") {
     if (cardioNameInput.value.trim() === "") {
       isValid = false;
@@ -122,6 +129,7 @@ async function handleFormSubmit(event) {
     workoutData.sets = Number(setsInput.value.trim());
     workoutData.reps = Number(repsInput.value.trim());
     workoutData.duration = Number(resistanceDurationInput.value.trim());
+    workoutData.caloriesBurned = Number(resistanceCaloriesBurnedInput.value.trim());
   }
 
   await API.addExercise(workoutData);
