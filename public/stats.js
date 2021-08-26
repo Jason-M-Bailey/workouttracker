@@ -50,6 +50,8 @@ function populateChart(data) {
     "Sat",
   ];
 
+  console.log(data)
+
   // todo: they label workouts by day of the week - but they do not combine in the graphs - consider a different label format
   const labels = data.map(({ day }) => {
     const date = new Date(day);
@@ -82,6 +84,7 @@ function populateChart(data) {
         xAxes: [
           {
             display: true,
+            stacked: true,
             scaleLabel: {
               display: true,
             },
@@ -90,6 +93,7 @@ function populateChart(data) {
         yAxes: [
           {
             display: true,
+            stacked: true,
             scaleLabel: {
               display: true,
             },

@@ -13,15 +13,23 @@ const API = {
   async addExercise(data) {
     const id = location.search.split("=")[1];
 
-    const res = await fetch("/api/workouts/" + id, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
+    // this will crash when offline
+    try{
+      const res = await fetch("/api/workouts/" + id, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+  
+      const json = await res.json();
+  
+      return json;
 
-    const json = await res.json();
-
-    return json;
+    }
+    
+    catch(err) {
+      saveRecord(data)
+    }
   },
   async createWorkout(data = {}) {
     const res = await fetch("/api/workouts", {

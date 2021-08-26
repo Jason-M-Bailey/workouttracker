@@ -87,4 +87,15 @@ router.delete("/api/workouts", ({ body }, res) => {
     });
 });
 
+// posts to offline db
+router.post("/api/workouts/bulk", (req, res) => {
+  console.log(req.body);
+  Workout.insertMany(req.body)
+  .then((dbWorkout) => {
+    res.json(dbWorkout);
+  })
+
+})
+
+
 module.exports = router;
