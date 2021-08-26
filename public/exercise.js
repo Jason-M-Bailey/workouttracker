@@ -7,16 +7,20 @@ const weightInput = document.querySelector("#weight");
 const setsInput = document.querySelector("#sets");
 const repsInput = document.querySelector("#reps");
 const durationInput = document.querySelector("#duration");
-// caloriesBurned id 
-const caloriesBurnedInput = document.querySelector("#caloriesBurned")
-const resistanceCaloriesBurnedInput = document.querySelector("#resistance-caloriesBurned")
+
+// caloriesBurned id
+const caloriesBurnedInput = document.querySelector("#caloriesBurned");
+const resistanceCaloriesBurnedInput = document.querySelector(
+  "#resistance-caloriesBurned"
+);
+//
 
 const resistanceDurationInput = document.querySelector("#resistance-duration");
 const distanceInput = document.querySelector("#distance");
 const completeButton = document.querySelector("button.complete");
 const addButton = document.querySelector("button.add-another");
 const toast = document.querySelector("#toast");
-const newWorkout = document.querySelector(".new-workout")
+const newWorkout = document.querySelector(".new-workout");
 
 let workoutType = null;
 let shouldNavigateAway = false;
@@ -25,13 +29,12 @@ async function initExercise() {
   let workout;
 
   if (location.search.split("=")[1] === undefined) {
-    workout = await API.createWorkout()
-    console.log(workout)
+    workout = await API.createWorkout();
+    console.log(workout);
   }
   if (workout) {
     location.search = "?id=" + workout._id;
   }
-
 }
 
 initExercise();
@@ -77,10 +80,10 @@ function validateInputs() {
       isValid = false;
     }
 
+    // calories burned validator
     if (resistanceCaloriesBurnedInput.value.trim() === "") {
       isValid = false;
     }
-
   } else if (workoutType === "cardio") {
     if (cardioNameInput.value.trim() === "") {
       isValid = false;
@@ -94,11 +97,10 @@ function validateInputs() {
       isValid = false;
     }
 
-    // calories burned validator 
+    // calories burned validator
     if (caloriesBurnedInput.value.trim() === "") {
       isValid = false;
     }
-
   }
 
   if (isValid) {
@@ -120,7 +122,7 @@ async function handleFormSubmit(event) {
     workoutData.name = cardioNameInput.value.trim();
     workoutData.distance = Number(distanceInput.value.trim());
     workoutData.duration = Number(durationInput.value.trim());
-    // caloriesBurned data 
+    // caloriesBurned data
     workoutData.caloriesBurned = Number(caloriesBurnedInput.value.trim());
   } else if (workoutType === "resistance") {
     workoutData.type = "resistance";
@@ -129,7 +131,9 @@ async function handleFormSubmit(event) {
     workoutData.sets = Number(setsInput.value.trim());
     workoutData.reps = Number(repsInput.value.trim());
     workoutData.duration = Number(resistanceDurationInput.value.trim());
-    workoutData.caloriesBurned = Number(resistanceCaloriesBurnedInput.value.trim());
+    workoutData.caloriesBurned = Number(
+      resistanceCaloriesBurnedInput.value.trim()
+    );
   }
 
   await API.addExercise(workoutData);
@@ -154,9 +158,8 @@ function clearInputs() {
   resistanceDurationInput.value = "";
   weightInput.value = "";
 
-  // 
+  //
   caloriesBurnedInput.value = "";
-
 }
 
 if (workoutTypeSelect) {
@@ -175,4 +178,4 @@ toast.addEventListener("animationend", handleToastAnimationEnd);
 
 document
   .querySelectorAll("input")
-  .forEach(element => element.addEventListener("input", validateInputs));
+  .forEach((element) => element.addEventListener("input", validateInputs));

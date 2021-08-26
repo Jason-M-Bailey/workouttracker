@@ -1,6 +1,6 @@
 let mongoose = require("mongoose");
 let db = require("../models");
-// require("dotenv").config()
+require("dotenv").config();
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
@@ -10,7 +10,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 
 let workoutSeed = [
   {
-    day: new Date().setDate(new Date().getDate()-10),
+    day: new Date().setDate(new Date().getDate() - 10),
     exercises: [
       {
         type: "resistance",
@@ -19,12 +19,12 @@ let workoutSeed = [
         weight: 100,
         reps: 10,
         sets: 4,
-        caloriesBurned: 160
-      }
-    ]
+        caloriesBurned: 160,
+      },
+    ],
   },
   {
-    day: new Date().setDate(new Date().getDate()-9),
+    day: new Date().setDate(new Date().getDate() - 9),
     exercises: [
       {
         type: "resistance",
@@ -33,12 +33,12 @@ let workoutSeed = [
         weight: 145,
         reps: 10,
         sets: 4,
-        caloriesBurned: 80
-      }
-    ]
+        caloriesBurned: 80,
+      },
+    ],
   },
   {
-    day: new Date().setDate(new Date().getDate()-8),
+    day: new Date().setDate(new Date().getDate() - 8),
     exercises: [
       {
         type: "resistance",
@@ -47,24 +47,24 @@ let workoutSeed = [
         weight: 185,
         reps: 8,
         sets: 4,
-        caloriesBurned: 120
-      }
-    ]
+        caloriesBurned: 120,
+      },
+    ],
   },
   {
-    day: new Date().setDate(new Date().getDate()-7),
+    day: new Date().setDate(new Date().getDate() - 7),
     exercises: [
       {
         type: "cardio",
         name: "Running",
         duration: 25,
         distance: 4,
-        caloriesBurned: 100
-      }
-    ]
+        caloriesBurned: 100,
+      },
+    ],
   },
   {
-    day: new Date().setDate(new Date().getDate()-6),
+    day: new Date().setDate(new Date().getDate() - 6),
     exercises: [
       {
         type: "resistance",
@@ -73,12 +73,12 @@ let workoutSeed = [
         weight: 285,
         reps: 10,
         sets: 4,
-        caloriesBurned: 90
-      }
-    ]
+        caloriesBurned: 90,
+      },
+    ],
   },
   {
-    day: new Date().setDate(new Date().getDate()-5),
+    day: new Date().setDate(new Date().getDate() - 5),
     exercises: [
       {
         type: "resistance",
@@ -87,9 +87,9 @@ let workoutSeed = [
         weight: 240,
         reps: 10,
         sets: 4,
-        caloriesBurned: 200
-      }
-    ]
+        caloriesBurned: 200,
+      },
+    ],
   },
   {
     day: new Date(new Date().setDate(new Date().getDate() - 4)),
@@ -101,9 +101,9 @@ let workoutSeed = [
         weight: 300,
         reps: 10,
         sets: 4,
-        caloriesBurned: 125
-      }
-    ]
+        caloriesBurned: 125,
+      },
+    ],
   },
   {
     day: new Date(new Date().setDate(new Date().getDate() - 3)),
@@ -115,9 +115,9 @@ let workoutSeed = [
         weight: 250,
         reps: 10,
         sets: 4,
-        caloriesBurned: 140
-      }
-    ]
+        caloriesBurned: 140,
+      },
+    ],
   },
   {
     day: new Date(new Date().setDate(new Date().getDate() - 2)),
@@ -129,19 +129,19 @@ let workoutSeed = [
         weight: 270,
         reps: 10,
         sets: 4,
-        caloriesBurned: 75
-      }
-    ]
-  }
+        caloriesBurned: 75,
+      },
+    ],
+  },
 ];
 
 db.Workout.deleteMany({})
   .then(() => db.Workout.collection.insertMany(workoutSeed))
-  .then(data => {
+  .then((data) => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
   })
-  .catch(err => {
+  .catch((err) => {
     console.error(err);
     process.exit(1);
   });

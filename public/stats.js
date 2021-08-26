@@ -24,17 +24,14 @@ function generatePalette() {
 function populateChart(data) {
   let durations = data.map(({ totalDuration }) => totalDuration);
 
-  // 
+  // add a let for calories burned 
   let calories_burned = data.map(({ calories_burned }) => calories_burned)
 
   console.log(calories_burned);
 
-
   let pounds = calculateTotalWeight(data);
   let workouts = workoutNames(data);
-  // add a let for calories burned 
   
-
   const colors = generatePalette();
 
   let line = document.querySelector("#chart1").getContext("2d");
@@ -55,6 +52,7 @@ function populateChart(data) {
 
   const labels = data.map(({ day }) => {
     const date = new Date(day);
+    console.log(data);
     return daysOfWeek[date.getDay()];
   });
 
@@ -74,10 +72,12 @@ function populateChart(data) {
     },
     options: {
       responsive: true,
+      // reverse: true,
       title: {
         display: true,
       },
       scales: {
+        // reverse: true,
         xAxes: [
           {
             display: true,
