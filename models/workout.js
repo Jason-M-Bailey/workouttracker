@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// use exercise.html to determine appropriate fields needed
 const workoutSchema = new Schema({
   day: {
     type: Date,
@@ -49,9 +50,7 @@ const workoutSchema = new Schema({
       // CALORIES BURNED
       caloriesBurned: {
         type: Number,
-      }
-
-
+      },
     },
   ],
 });

@@ -34,7 +34,7 @@ router.get("/api/workouts", (req, res) => {
           $sum: "$exercises.duration",
         },
 
-
+        // sum of the calories burned 
         totalCaloriesBurned: {
           $sum: "$exercises.caloriesBurned",
         },
@@ -55,9 +55,13 @@ router.get("/api/workouts/range", (req, res) => {
       $addFields: {
         totalDuration: {
           $sum: "$exercises.duration",
+          // console.log(`total duration: ${totalDuration}`),
         },
+
+        // sum of the calories burned
         calories_burned: {
           $sum: "$exercises.caloriesBurned",
+          // console.log(`calories burned: ${calories_burned}`);
         },
       },
     },
