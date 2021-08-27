@@ -15,7 +15,8 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
   Workout.findByIdAndUpdate(
     params.id,
     { $push: { exercises: body } },
-    // "runValidators" will ensure new exercises meet our schema requirements
+
+    // runValidators to check new exercises meet schema reqs
     { new: true, runValidators: true }
   )
     .then((dbWorkout) => {
@@ -34,7 +35,7 @@ router.get("/api/workouts", (req, res) => {
           $sum: "$exercises.duration",
         },
 
-        // sum of the calories burned 
+        // sum of the calories burned
         totalCaloriesBurned: {
           $sum: "$exercises.caloriesBurned",
         },
@@ -66,21 +67,16 @@ router.get("/api/workouts/range", (req, res) => {
       },
     },
   ])
-    .sort({ _id: -1 })
-    .limit(7)
-    .then((dbWorkouts) => {
-      console.log(dbWorkouts);
-      res.json(dbWorkouts);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
 
-router.delete("/api/workouts", ({ body }, res) => {
-  Workout.findByIdAndDelete(body.id)
-    .then(() => {
-      res.json(true);
+    // can we arrange the data correctly?
+    .sort({ _id: -1 })
+
+    // only show last 7 workouts -- this is not the same as showing the last 7 days
+    .limit(7)
+
+    .then((dbWorkouts) => {
+      // console.log(dbWorkouts);
+      res.json(dbWorkouts);
     })
     .catch((err) => {
       res.json(err);
@@ -89,13 +85,10 @@ router.delete("/api/workouts", ({ body }, res) => {
 
 // posts to offline db
 router.post("/api/workouts/bulk", (req, res) => {
-  console.log(req.body);
-  Workout.insertMany(req.body)
-  .then((dbWorkout) => {
+  // console.log(req.body);
+  Workout.insertMany(req.body).then((dbWorkout) => {
     res.json(dbWorkout);
-  })
-
-})
-
+  });
+});
 
 module.exports = router;

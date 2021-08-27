@@ -12,4 +12,4 @@ A consumer will reach their fitness goals more quickly when they track their wor
 
 ## Summary
 
-View your workout statistics on the main page, the total weight lifted, time spent, calories burned, etc. On the dashboard, view the past 7 days of workouts in more detail. 
+View your workout statistics on the main page, the total weight lifted, time spent, calories burned, etc. On the dashboard, view the past 7 days of workouts in more detail. This app also works offline and will sync your data once reconnected.
