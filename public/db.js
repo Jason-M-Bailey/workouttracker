@@ -49,8 +49,10 @@ function checkDatabase() {
       })
         .then((response) => response.json())
         .then((res) => {
+
           // If our returned response is not empty
           if (res.length !== 0) {
+            
             // Open another transaction to WorkoutStore with the ability to read and write
             transaction = db.transaction(['WorkoutStore'], 'readwrite');
 
