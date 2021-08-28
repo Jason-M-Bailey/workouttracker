@@ -30,26 +30,31 @@ const workoutSchema = new Schema({
       // from exercise.html - Weight (lbs)
       weight: {
         type: Number,
+        // required: "enter exercise weight in lbs",
       },
 
       // from exercise.html - Reps
       reps: {
         type: Number,
+        // required: "enter reps",
       },
 
       // from exercise.html - Sets
       sets: {
         type: Number,
+        // required: "enter sets",
       },
 
       // from exercise.html - Distance (miles)
       distance: {
         type: Number,
+        // required: "enter distance in miles",
       },
 
       // CALORIES BURNED
       caloriesBurned: {
         type: Number,
+        // required: "enter calories burned",
       },
     },
   ],
